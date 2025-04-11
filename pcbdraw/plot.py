@@ -1283,10 +1283,18 @@ class PcbPlotter():
         paths = []
         components = tree.find(".//*[@id='componentContainer']")
         if components is not None:
-            paths += svgpathtools.document.flattened_paths(components)
+            try:
+                paths += svgpathtools.document.flattened_paths(components)
+            except AssertionError as e:
+                # Skip invalid paths in components
+                pass
         substrate = tree.find(".//*[@id='cut-off']")
         if substrate is not None:
-            paths += svgpathtools.document.flattened_paths(substrate)
+            try:
+                paths += svgpathtools.document.flattened_paths(substrate)
+            except AssertionError as e:
+                # Skip invalid paths in substrate
+                pass
 
         if len(paths) == 0:
             return

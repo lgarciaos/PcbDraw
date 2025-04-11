@@ -30,7 +30,7 @@ setuptools.setup(
         "pybars3",
         "pyyaml",
         "svgpathtools==1.4.1",
-        "pcbnewTransition>=0.4",
+        "pcbnewTransition @ git+https://github.com/yaqwsx/pcbnewTransition.git@main",
         "LnkParse3; platform_system=='Windows'",
         "pyVirtualDisplay~=3.0; platform_system!='Windows'",
         "Pillow~=9.0",

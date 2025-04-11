@@ -590,7 +590,7 @@ def collect_holes(board: pcbnew.BOARD) -> List[Hole]:
                 orientation=pad.GetOrientation(),
                 drillsize=(drs.x, drs.y)
             ))
-    via_type = pcbnew.VIA if LEGACY_KICAD else pcbnew.PCB_VIA
+    via_type = pcbnew.PCB_VIA
     for track in board.GetTracks():
         if not isinstance(track, via_type):
             continue
